@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "post") {
     $body = "Name: $name\nEmail: $email\nMessage:\n$message";
     mail($to, $subject, $body, $headers);
     header("Location: thankyou.html");
+    echo "The email($email_subject) was successfully sent.";
     exit();
 }
 ?>

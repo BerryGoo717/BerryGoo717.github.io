@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "post") {
     $to = "juliepao@seas.upenn.edu";
     $subject = "New Contact Form Submission";
     $name = $_POST["name"];

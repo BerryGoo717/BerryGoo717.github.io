@@ -164,7 +164,14 @@
 									<div class="contact-method">
 										<span class="icon solid alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">juliepao@seas.upenn.edu<br />julie.pao@pennmedicine.upenn.edu</a>
+										<a href="mailto:juliepao@seas.upenn.edu"
+       									   class="email-link"
+       								   	   data-email="juliepao@seas.upenn.edu"
+     								   	   title="Copy juliepao@seas.upenn.edu">juliepao@seas.upenn.edu</a><br />
+    									<a href="mailto:julie.pao@pennmedicine.upenn.edu"
+       								   	   class="email-link"
+       								   	   data-email="julie.pao@pennmedicine.upenn.edu"
+       								   	   title="Copy julie.pao@pennmedicine.upenn.edu">julie.pao@pennmedicine.upenn.edu</a>
 									</div>
 								</section>
 								<section>
@@ -212,5 +219,50 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<!-- copy-to-clipboard for email links -->
+    		<script>
+        		// copy mailto:link on click and show a short status
+        		(function () {
+            		function showStatus(msg) {
+                		const s = document.createElement('div');
+                		s.textContent = msg;
+                		Object.assign(s.style, {
+                    		position: 'fixed',
+                    		bottom: '20px',
+                    		right: '20px',
+                    		background: 'rgba(0,0,0,0.8)',
+							color: '#fff',
+                    		padding: '8px 12px',
+                    		borderRadius: '6px',
+                    		zIndex: 9999,
+                    		fontSize: '14px'
+                		});
+                		document.body.appendChild(s);
+                		setTimeout(() => s.remove(), 2000);
+            		}
+
+            		document.querySelectorAll('.email-link').forEach(function (el) {
+                		el.addEventListener('click', function (e) {
+                    		e.preventDefault(); // prevent opening mail client
+                    		const email = el.dataset.email;
+                    		const mailto = 'mailto:' + email;
+                    		if (navigator.clipboard && navigator.clipboard.writeText) {
+                        		navigator.clipboard.writeText(mailto)
+                            		.then(() => showStatus('Copied: ' + mailto))
+                            		.catch(() => showStatus('Copy failed'));
+                    		} else {
+                        		// fallback
+                        		const ta = document.createElement('textarea');
+                        		ta.value = mailto;
+                        		document.body.appendChild(ta);
+                        		ta.select();
+                        		try { document.execCommand('copy'); showStatus('Copied: ' + mailto); }
+                        		catch (err) { showStatus('Copy failed'); }
+                        		ta.remove();
+                    		}
+               			});
+					});
+    			})();
+			</script>
 	</body>
 </html>

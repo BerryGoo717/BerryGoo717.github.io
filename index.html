@@ -245,7 +245,7 @@
                 		el.addEventListener('click', function (e) {
                     		e.preventDefault(); // prevent opening mail client
                     		const email = el.dataset.email;
-                    		const mailto = 'mailto:' + email;
+                    		const mailto = email;
                     		if (navigator.clipboard && navigator.clipboard.writeText) {
                         		navigator.clipboard.writeText(mailto)
                             		.then(() => showStatus('Copied: ' + mailto))

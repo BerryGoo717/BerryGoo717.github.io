@@ -35,7 +35,7 @@
 							<li><a href="music.html">Music</a></li>
 							<li><a href="work.html">Work-Study</a></li>
 							<li><a href="sports.html">Physical Recreation</a></li>
-							<li><a href="resume.html">Resume</a></li>
+							<li><a href="cv.html">Curricum Vitae</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -50,7 +50,7 @@
 								<h1>Hi, my name is Julie Pao</h1>
 							</header>
 							<div class="content">
-								<p>I am an undergraduate student at the University of Pennsylvania, majoring in bioengineering on a pre-medical track. Here's who I am and what I do.</p>
+								<p>I am an undergraduate student at the University of Pennsylvania, majoring in Bioengineering on a Pre-Medical track. Here's who I am and what I do.</p>
 								<ul class="actions">
 									<li><a href="#one" class="button next scrolly">Get Started</a></li>
 								</ul>
@@ -123,11 +123,11 @@
 							<section id="two">
 								<div class="inner">
 									<header class="major">
-										<h2>Resume</h2>
+										<h2>Curriculum Vitae</h2>
 									</header>
-									<p>Versatile professional with substantial experience in computational biology and clinical research support. Successfully managed biology projects and clinical operations, driving discovery from concept through action. Skilled in applying biological methodologies to real-world challenges such as translational research and medical imaging. Passionate about merging biomedical concepts, computational tools, and collaboration to deliver high-impact solutions.</p>
+									<p>Versatile professional with substantial experience in computational biology and clinical/translational research. Successfully managed large-scale medical screenings and operations, driving humanitarian efforts from concept through action.  Skilled in applying biological methodologies to real-world challenges such as imaging and diagnostics. Passionate about medicine through merging biomedical concepts, novel research, and clinical experience.</p>
 									<ul class="actions">
-										<li><a href="resume.html" class="button next">View Resume</a></li>
+										<li><a href="cv.html" class="button next">View CV</a></li>
 									</ul>
 								</div>
 							</section>
@@ -263,6 +263,22 @@
                			});
 					});
     			})();
+			</script>
+
+			<script>
+			document.querySelectorAll('a.scrolly, a.button.next').forEach(function(el){
+  				el.addEventListener('click', function(e){
+    				const href = this.getAttribute('href') || '';
+    				if (!href.startsWith('#')) return; // ignore external links
+    				const id = href.slice(1);
+    				const target = document.getElementById(id);
+    				if (!target) return;
+    				e.preventDefault();
+    				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    				// remove hash from URL so "#one" doesn't appear
+    				history.replaceState(null, '', window.location.pathname + window.location.search);
+  				});
+			});
 			</script>
 	</body>
 </html>

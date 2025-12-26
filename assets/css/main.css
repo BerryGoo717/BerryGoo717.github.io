@@ -3962,22 +3962,3 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
-		
-		/* center a content block but keep list items left-aligned */
-.centered-section {
-    max-width: 720px;
-    margin: 0 auto 1.25rem;
-    text-align: center; /* centers the heading */
-}
-.centered-section ul {
-    display: inline-block; /* allows the list to be centered as a block */
-    text-align: left;      /* keep bullets and items left-aligned */
-    margin: 0;
-    padding-left: 1.25rem; /* restore bullet indentation */
-}
-.centered-section p { margin-bottom: 0.5rem; }
-/* optional tweak for small screens */
-@media (max-width: 600px) {
-    .centered-section { max-width: 100%; padding: 0 1rem; }
-    .centered-section ul { display: block; }
-}
